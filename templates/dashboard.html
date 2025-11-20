@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KK FARM | Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h1>Farm Dashboard</h1>
+
+        <div class="grid">
+            <a href="/cattle" class="card">🐄 Cattle</a>
+            <a href="/goats" class="card">🐐 Goats</a>
+            <a href="/milk" class="card">🥛 Milk Records</a>
+            <a href="/workers" class="card">👨‍🌾 Workers</a>
+            <a href="/reports" class="card">📊 Reports</a>
+            <a href="/settings" class="card">⚙ Settings</a>
+        </div>
+    </div>
+
+</body>
+</html>

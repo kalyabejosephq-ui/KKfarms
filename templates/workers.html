@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workers Management | KK FARM</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h1>👨‍🌾 Workers Management</h1>
+
+        <!-- Add Worker Form -->
+        <div class="form-card">
+            <h2>Add New Worker</h2>
+            <form method="POST" action="/add_worker">
+                <input type="text" name="name" placeholder="Worker Name" required>
+                <input type="text" name="role" placeholder="Role / Position" required>
+                <input type="text" name="phone" placeholder="Phone Number">
+                <textarea name="notes" placeholder="Notes"></textarea>
+                <button type="submit">Add Worker</button>
+            </form>
+        </div>
+
+        <!-- Workers List -->
+        <h2>All Workers</h2>
+
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Phone</th>
+                <th>Notes</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for worker in workers %}
+            <tr>
+                <td>{{ worker.name }}</td>
+                <td>{{ worker.role }}</td>
+                <td>{{ worker.phone }}</td>
+                <td>{{ worker.notes }}</td>
+                <td>
+                    <a class="delete-btn" href="/delete_worker/{{ worker.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+</body>
+</html>

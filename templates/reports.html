@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reports | KK FARM</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    {% include 'navbar.html' %}
+
+    <div class="container">
+        <h1>📊 Farm Reports</h1>
+
+        <!-- Farm Summary -->
+        <div class="form-card">
+            <h2>Farm Summary</h2>
+            <p>Total Cattle: {{ total_cattle }}</p>
+            <p>Total Goats: {{ total_goats }}</p>
+            <p>Total Milk Produced: {{ total_milk }} L</p>
+            <p>Total Milk Sold: {{ total_sold }} L</p>
+            <p>Total Milk Used at Home: {{ total_used_home }} L</p>
+            <p>Total Income: {{ total_income }}</p>
+        </div>
+
+        <!-- Optional: Milk Table -->
+        <h2>Milk Records</h2>
+        <table class="table">
+            <tr>
+                <th>Date</th>
+                <th>Total Milk (L)</th>
+                <th>Sold (L)</th>
+                <th>Used Home (L)</th>
+                <th>Income</th>
+            </tr>
+            {% for record in milk_records %}
+            <tr>
+                <td>{{ record.date }}</td>
+                <td>{{ record.total }}</td>
+                <td>{{ record.sold }}</td>
+                <td>{{ record.used_home }}</td>
+                <td>{{ record.income }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+
+</body>
+</html>
